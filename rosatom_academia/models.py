@@ -1,20 +1,21 @@
 from django.db import models
 
-class Review(models.Model):
-    text = models.TextField()
-    rating = models.IntegerField()
-    positive = models.BooleanField()
+# class Review(models.Model):
+#     text = models.TextField()
+#     rating = models.IntegerField()
+#     positive = models.BooleanField()
 
-    def __str__(self):
-        return f'Grade: {self.rating}, {self.positive}'
-from django.db import models
+#     def __str__(self):
+#         return f'Grade: {self.rating}, {self.positive}'
+# from django.db import models
 
-class User(models.Model):
+class Criterions(models.Model):
     criterion1 = models.IntegerField()
     criterion2 = models.IntegerField()
     criterion3 = models.IntegerField()
     criterion4 = models.IntegerField()
     criterion5 = models.IntegerField()
+
     criterion1_task1_grade = models.IntegerField()
     criterion1_task2_grade = models.IntegerField()
 
@@ -31,3 +32,9 @@ class User(models.Model):
     criterion5_task3_grade = models.IntegerField()
     criterion5_task4_grade = models.IntegerField()
     criterion5_task5_grade = models.IntegerField()
+
+class User(models.Model):
+    user_id = models.AutoField(primary_key=True)
+    user_type = models.IntegerField()
+    user_criterions = models.ForeignKey('Criterions', on_delete=models.CASCADE)
+
