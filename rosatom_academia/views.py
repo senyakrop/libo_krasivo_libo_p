@@ -5,12 +5,21 @@ from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView
 
-def rating(request):
+def participant_page(request):
     return render(request, 'participant.html')
 
-# def user_table(request):
-#     users = User.objects.all()
-#     return render(request, 'user_table.html', {'users': users})
+def user_table(request):
+    users = User.objects.all()
+    return render(request, 'user_table.html', {'users': users})
+def pm_page(request):
+    return render(request, 'pm.html')
+
+def hr_page(request):
+    return render(request, 'hr.html')
+
+def user_table(request):
+    users = User.objects.all()
+    return render(request, 'user_table.html', {'users': users})
 
 def home(request):
     return render(request, 'home.html')
